@@ -20,20 +20,35 @@
     <br>
   </div>
   <h6> Usuario: {{usuario}}</h6>
+  <div class="ion-text-center">
+    <h3> Información Adicional</h3>
+    <br>
+  </div>
   <ion-item>
-    <ion-label slot="start">Nombre:</ion-label>
+    <ion-label slot="start">Nombre:
+      <div placeholder="Enter text"></div>
+    </ion-label>
     <ion-input></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label slot="start">Apellido:</ion-label>
+    <ion-label slot="start">Apellido:
+      <div placeholder="Enter text"></div>
+    </ion-label>
     <ion-input></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label slot="start">Nivel Educacional:</ion-label>
-    <ion-input></ion-input>
+    <ion-select label="Nivel Educacional" placeholder="Make a Selection">
+      <ion-select-option value="">Básica incompleta</ion-select-option>
+      <ion-select-option value="">Básica Completa</ion-select-option>
+      <ion-select-option value="">Media incompleta</ion-select-option>
+      <ion-select-option value="">Media Completa</ion-select-option>
+      <ion-select-option value="">CFT/IP/Universitaria incompleta</ion-select-option>
+      <ion-select-option value="">CFT/IP/Universitaria Completa</ion-select-option>
+      <ion-select-option value="">Postgrado</ion-select-option>
+    </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label slot="start">Fecha de Nacimiento:</ion-label>
+    <ion-datetime presentation="Fecha de Nacimiento" [preferWheel]="true"></ion-datetime>
     <ion-input></ion-input>
   </ion-item>
 </ion-content>
