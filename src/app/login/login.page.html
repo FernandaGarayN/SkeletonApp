@@ -10,14 +10,14 @@
       <ion-title size="large">Login</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-input label="Usuario" [(ngModel)]="usuario" label-placement="floating" fill="solid"helperText="Usuario máximo 8 caracteres" 
+  <ion-input id="ion_user_input" label="Usuario" [(ngModel)]="usuario" label-placement="floating" fill="solid"helperText="Usuario máximo 8 caracteres" 
   [counter]="true" [maxlength]="8" [minlength]="3" placeholder="Ingrese Usuario"></ion-input>
 
 <br />
 
-<ion-input label="Password" [(ngModel)]="password" label-placement="floating" type="password" fill="outline" helperText="Contraseña máximo 4 caracteres"
+<ion-input id="ion_password_input" label="Password" [(ngModel)]="password" label-placement="floating" type="password" fill="outline" helperText="Contraseña máximo 4 caracteres"
 [counter]="true" [maxlength]="4" placeholder="Ingrese contraseña"></ion-input>
-<ion-button (click)="login()" size="large">Ingresar</ion-button>
+<ion-button (click)="login()" size="medium">Ingresar</ion-button>
 </ion-content>
 
 {{usuario}}

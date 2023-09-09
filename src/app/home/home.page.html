@@ -28,27 +28,51 @@
     <ion-label slot="start">Nombre:
       <div placeholder="Enter text"></div>
     </ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="nombre"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label slot="start">Apellido:
       <div placeholder="Enter text"></div>
     </ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="apellido"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-select label="Nivel Educacional" placeholder="Make a Selection">
-      <ion-select-option value="">Básica incompleta</ion-select-option>
-      <ion-select-option value="">Básica Completa</ion-select-option>
-      <ion-select-option value="">Media incompleta</ion-select-option>
-      <ion-select-option value="">Media Completa</ion-select-option>
-      <ion-select-option value="">CFT/IP/Universitaria incompleta</ion-select-option>
-      <ion-select-option value="">CFT/IP/Universitaria Completa</ion-select-option>
-      <ion-select-option value="">Postgrado</ion-select-option>
+    <ion-select label="Nivel Educacional" [(ngModel)]="nivelEducacional" placeholder="Elige una opción">
+      <ion-select-option value="basicaIncompleta">Básica Incompleta</ion-select-option>
+      <ion-select-option value="basicaCompleta">Básica Completa</ion-select-option>
+      <ion-select-option value="mediaIncompleta">Media Incompleta</ion-select-option>
+      <ion-select-option value="mediaCompleta">Media Completa</ion-select-option>
+      <ion-select-option value="superiorIncompleta">CFT/IP/Universitaria Incompleta</ion-select-option>
+      <ion-select-option value="superiorCompleta">CFT/IP/Universitaria Completa</ion-select-option>
+      <ion-select-option value="postgrado">Postgrado</ion-select-option>
     </ion-select>
   </ion-item>
+
   <ion-item>
-    <ion-datetime presentation="Fecha de Nacimiento" [preferWheel]="true"></ion-datetime>
-    <ion-input></ion-input>
+    <ion-label position="floating">Fecha de Nacimiento</ion-label>
+    <br>
+    <ion-datetime-button datetime="datetime" displayFormat="D/M/YYYY"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime" [(ngModel)]="fechaDeNacimiento" presentation="date"></ion-datetime>
+      </ng-template>
+    </ion-modal>
   </ion-item>
+  <br>
+  <ion-button fill="solid" (click)="clean()">Limpiar</ion-button>
+  <ion-button id="click-trigger">Mostrar</ion-button>
+  <ion-popover trigger="click-trigger" triggerAction="click">
+    <ng-template>
+      <div class="ion-text-center">
+        <h3>Usuario</h3>
+        <br>
+      </div>
+      <ion-content class="ion-padding">Su Nombre es: {{nombre}} {{apellido}}</ion-content>
+    </ng-template>
+  </ion-popover>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>App desarrollada por @FernandaGarayN</ion-title>
+  </ion-toolbar>
+</ion-footer>

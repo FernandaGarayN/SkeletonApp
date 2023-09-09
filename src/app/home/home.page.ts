@@ -10,6 +10,10 @@ import { NavController } from '@ionic/angular';
 export class HomePage {
 
   usuario!: string;
+  nombre!: string;
+  apellido!: string;
+  nivelEducacional!: string;
+  fechaDeNacimiento: string = new Date().toISOString();
   
   constructor(private route: ActivatedRoute, private navCtrl: NavController) {}
 
@@ -21,6 +25,13 @@ export class HomePage {
         this.navCtrl.navigateForward('/login');
       }
     })
+  }
+  clean(){
+    this.nombre = "";
+    this.apellido = "";
+    this.nivelEducacional = "";
+    this.fechaDeNacimiento = new Date().toISOString();
+
   }
 
 }
