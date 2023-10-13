@@ -49,14 +49,10 @@
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Fecha de Nacimiento</ion-label>
-    <br>
-    <ion-datetime-button datetime="datetime" displayFormat="D/M/YYYY"></ion-datetime-button>
-    <ion-modal [keepContentsMounted]="true">
-      <ng-template>
-        <ion-datetime id="datetime" [(ngModel)]="fechaDeNacimiento" presentation="date"></ion-datetime>
-      </ng-template>
-    </ion-modal>
+    <mat-label>Fecha de Nacimiento</mat-label>
+    <input class="my-responsive-input" matInput [matDatepicker]="picker" [(ngModel)]="fechaDeNacimiento">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
   </ion-item>
   <br>
   <ion-button fill="solid" (click)="clean()">Limpiar</ion-button>
@@ -67,7 +63,7 @@
         <h3>Usuario</h3>
         <br>
       </div>
-      <ion-content class="ion-padding">Su Nombre es: {{nombre}} {{apellido}}</ion-content>
+      <ion-content class="ion-padding">Su Nombre es: {{nombre}} {{apellido}} {{fechaDeNacimiento | date:'dd/MM/yyyy'}} </ion-content>
     </ng-template>
   </ion-popover>
 </ion-content>
